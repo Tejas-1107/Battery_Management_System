@@ -1,0 +1,55 @@
+#include "SBS_PAGE_100h_10Fh.h"
+
+struct_SBS_page1 SBS_page1;
+
+void MAX17320_SBS_sMANUFACTURE_ACCESS_REGISTER(void)
+{
+	SBS_READ_WORD(sMANUFACTURE_ACCES_REGISTER_ADDRESS,&SBS_page1.s_manufacture_access);
+}
+
+void MAX17320_SBS_sREMAINING_CAPACITY_ALARM_REGISTER_R(void)
+{
+	SBS_READ_WORD(sREMAINING_CAPACITY_ALARM_REGISTER_ADDRESS,&SBS_page1.s_remaining_capacity_alarm);
+}
+
+void MAX17320_SBS_sREMAINING_CAPACITY_ALARM_REGISTER_W(uint16_t remaining_capacity)
+{
+	SBS_WRITE_WORD(sREMAINING_CAPACITY_ALARM_REGISTER_ADDRESS,remaining_capacity);
+}
+
+void MAX17320_SBS_sREMIANING_TIME_ALARM_REGISTER_R(void)
+{
+	SBS_READ_WORD(sREMIANING_TIME_ALARM_REGISTER_ADDRESS,&SBS_page1.s_remaining_time_alarm);
+}
+
+void MAX17320_SBS_sBATTERY_MODE_REGISTER_R(void)
+{
+	SBS_READ_WORD(sBATTERY_MODE_REGISTER_ADDRESS,&SBS_page1.s_battery_mode);
+}
+
+void MAX17320_SBS_sBATTERY_MODE_REGISTER_W(uint16_t battery_mode)
+{
+	SBS_WRITE_WORD(sBATTERY_MODE_REGISTER_ADDRESS,battery_mode);
+}
+//not implemented
+void MAX17320_SBS_sTEMPERATURE_REGISTER_R(void)
+{
+	SBS_READ_WORD(sTEMPERATURE_REGISTER_ADDRESS,&SBS_page1.s_temperature);
+	SBS_page1.sbs_temperature = (SBS_page1.s_temperature) * 0.1f;
+}
+
+void MAX17320_SBS_sPACK_VOLTAGE_REGISTER_R(void)
+{
+	SBS_READ_WORD(sPACK_VOLTAGE_REGISTER_ADDRESS,&SBS_page1.s_pack_voltage);
+	SBS_page1.sbs_voltage = (SBS_page1.s_pack_voltage) * 1000.0f;
+}
+
+void MAX17320_SBS_sCURRENT_REGISTER_R(void)
+{
+	SBS_READ_WORD(sCURRENT_REGISTER_ADDRESS,&SBS_page1.s_current);
+}
+
+void MAX17320_SBS_sAVERAGE_CURRENT_REGISTER_R(void)
+{
+	SBS_READ_WORD(sAVERAGE_CURRENT_REGISTER_ADDRESS,&SBS_page1.s_average_current);
+}

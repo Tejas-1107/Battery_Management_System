@@ -1,0 +1,41 @@
+#include "MAX_PAGE_020h_02Fh.h"
+
+void MAX17320_TIME_TO_FULL_REGISTER_R(void)     					//how much time left to compltete charge
+{
+	MAX17320_READ_DATA_FROM_REGISTER(TIME_TO_FULL_REGISTER_ADDRESS,&MAX17320.time_to_full);
+}
+
+void MAX17320_DEVICE_NAME_REGISTER_R(void)         				//device name
+{
+	MAX17320_READ_DATA_FROM_REGISTER(DEVICE_NAME_REGISTER_ADDRESS,&MAX17320.device_name);
+}
+
+void MAX17320_QR_TALBE_10_REGISTER_R(void)          			//not important
+{
+	MAX17320_READ_DATA_FROM_REGISTER(QR_TABLE_10_REGISTER_ADDRESS,&MAX17320.qr_table_10);
+}
+
+void MAX17320_FULL_CAPACITY_NOMINAL_REGISTER_R(void)   		//full capacity of the battery
+{
+	MAX17320_READ_DATA_FROM_REGISTER(FULL_CAPACITY_NOMINAL_REGISTER_ADDRESS,&MAX17320.full_capacity_nominal);
+}
+
+void MAX17320_CHARGING_CURRENT(void)                    	//at what rate the current is charging
+{
+	MAX17320_READ_DATA_FROM_REGISTER(CHARGING_CURRENT_REGISTER_ADDRESS,&MAX17320.charging_current);
+}
+
+void MAX17320_FILTER_CONFIGURATION_REGISTER_R(void)     	//gives the timings for the current,temperature,voltage
+{
+	MAX17320_READ_DATA_FROM_REGISTER(FILTER_CONFIGURATION_REGISTER_ADDRESS,&MAX17320.filter_configuration);
+}
+
+void MAX17320_CHARGING_VOLTAGE_REGISTER_R(void)						//at what rate the voltage is charging
+{
+	MAX17320_READ_DATA_FROM_REGISTER(CHARGING_VOLTAGE_REGISTER_ADDRESS,&MAX17320.charging_voltage);
+}
+
+void MAX17320_MIX_CAPACITY_REGISTER_R(void)               //118
+{
+	MAX17320_READ_DATA_FROM_REGISTER(MIX_CAPACITY_REGISTER_ADDRESS,&MAX17320.mixcapacity);
+}
